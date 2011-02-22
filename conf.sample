@@ -1,0 +1,3 @@
+# Enter the directory where you keep the best-bash repo
+$DIR="/home/username/best-bash"
+. $DIR/bash_profile
