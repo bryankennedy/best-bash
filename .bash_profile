@@ -36,6 +36,23 @@ if [ -f .bash_aliases ]; then
 fi
 
 ############################################################
+# CUSTOM DEFINTIONS
+#
+# These are defined in a seperate folder that can be ignored
+# by this Git repo, and customized across multiple deploys
+# of this bash profile.
+# Since they are in their own folder, they can even be a 
+# seperate Git repo themselves.
+############################################################
+if [ -f custom/aliases]; then
+    . custom/aliases
+fi
+
+if [ -f custom/profile]; then
+    . custom/profile
+fi
+
+############################################################
 # PATH DEFINITIONS
 ############################################################
 export PATH=/usr/local/bin:$PATH
