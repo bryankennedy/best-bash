@@ -1,4 +1,8 @@
 # Enter the directory where you keep the best-bash repo
 # No trailing slash
-$DIR="/home/username/best-bash"
-. $DIR/bash_profile
+export HOMEDIR="/home/username/best-bash"
+
+############################################################
+# Do not edit after this line
+############################################################
+. $HOMEDIR/bash_profile

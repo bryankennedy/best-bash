@@ -13,7 +13,6 @@ bind "set completion-ignore-case on"
 if [ -f /opt/local/etc/bash_completion ]; then
      . /opt/local/etc/bash_completion
 fi
-
 ############################################################
 # BASH PROMPT
 ############################################################
@@ -31,8 +30,8 @@ PS1='\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\
 ############################################################
 # ALIAS DEFINITIONS 
 ############################################################
-if [ -f $MY_DIR/bash_aliases ]; then
-    . $MY_DIR/bash_aliases
+if [ -f $HOMEDIR/bash_aliases ]; then
+    . $HOMEDIR/bash_aliases
 fi
 
 ############################################################
@@ -44,12 +43,13 @@ fi
 # Since they are in their own folder, they can even be a 
 # seperate Git repo themselves.
 ############################################################
-if [ -f custom/aliases]; then
-    . custom/aliases
+if [ -f $HOMEDIR/custom/aliases ]; then
+    . $HOMEDIR/custom/aliases
 fi
 
-if [ -f custom/profile]; then
-    . custom/profile
+echo "Debug"
+if [ -f $HOMEDIR/custom/profile ]; then
+    . $HOMEDIR/custom/profile
 fi
 
 ############################################################
