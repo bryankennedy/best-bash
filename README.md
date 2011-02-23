@@ -1,7 +1,7 @@
 # A first pass at sharing my bash environment
 
 ## Instalation
-1. Put this folder anywhere and cd to the directory.
+1. Put this folder anywhere and `cd` to the directory.
         cd /wherever/best-bash
 2. Copy the conf.sample file, name it conf, and edit conf define the variables within.
         cp conf.sample conf
