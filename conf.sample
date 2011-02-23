@@ -1,3 +1,4 @@
 # Enter the directory where you keep the best-bash repo
+# No trailing slash
 $DIR="/home/username/best-bash"
 . $DIR/bash_profile
