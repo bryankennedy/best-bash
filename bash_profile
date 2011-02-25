@@ -8,6 +8,12 @@ export CLICOLOR=1
 HISTFILESIZE=1000000000
 HISTSIZE=1000000
 
+# Close root after n seconds of inactivity
+[ "$UID" = 0 ] && export TMOUT=180
+
+# Less is more
+export PAGER="less"
+
 ############################################################
 # BASH PROMPT
 ############################################################
@@ -23,11 +29,12 @@ export TERM=xterm
 PS1='\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]:\[\033[1;34m\]\w\[\033[0m\] \$ ' 
 
 ############################################################
-# ENVIRONMENT VARIABLES
+# Editors
 ############################################################
 
-# SVN
-export SVN_EDITOR=vim
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
+export SVN_EDITOR=$EDITOR
 
 ############################################################
 # PATH DEFINITIONS
@@ -76,3 +83,8 @@ fi
 
 # Autocomplete hostnames
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
+
+############################################################
+# On login
+############################################################
+echo -e "Uptime: `uptime`"

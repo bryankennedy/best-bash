@@ -2,7 +2,12 @@
 # Shorthand
 ###############################################################################
 alias c='clear'
+alias g='grep'
 alias xx="exit"
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+alias path='echo -e ${PATH//:/\\n}'
 
 ###############################################################################
 # Listing
@@ -15,11 +20,20 @@ alias ll='ls -lah'
 alias lw='ls -lahd'
 
 ###############################################################################
+# Searching
+###############################################################################
+function findin () {
+  find . -exec grep -q "$1" '{}' \; -print
+}
+
+###############################################################################
 # Changing directories
 ###############################################################################
 # Shorthand navigation
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 # Compress the cd, ls -l series of commands.
 function cl () {
    if [ $# = 0 ]; then
@@ -35,6 +49,30 @@ function mc() {
   mkdir -p "$*" && cd "$*" && pwd
 }
 
+###############################################################################
+# Extracting
+###############################################################################
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1        ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.tgz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1       ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1     ;;
+            *.tar)       tar xvf $1        ;;
+            *.tbz2)      tar xvjf $1      ;;
+            *.tgz)       tar xvzf $1       ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1    ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 ###############################################################################
 # OS X Specific Tools
