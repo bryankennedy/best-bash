@@ -28,6 +28,25 @@ export TERM=xterm
 PS1='\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]:\[\033[1;34m\]\w\[\033[0m\] \$ ' 
 
 ############################################################
+# ENVIRONMENT VARIABLES
+############################################################
+
+# SVN
+export SVN_EDITOR=vim
+
+############################################################
+# PATH DEFINITIONS
+############################################################
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/mysql/bin:$PATH
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/sbin:$PATH
+export PATH=/Users/username/bin:$PATH
+export PATH=/Applications/MacVim:$PATH
+export PATH=/opt/subversion/bin:$PATH
+
+############################################################
 # ALIAS DEFINITIONS 
 ############################################################
 if [ -f $HOMEDIR/bash_aliases ]; then
@@ -47,32 +66,6 @@ if [ -f $HOMEDIR/custom/aliases ]; then
     . $HOMEDIR/custom/aliases
 fi
 
-echo "Debug"
 if [ -f $HOMEDIR/custom/profile ]; then
     . $HOMEDIR/custom/profile
 fi
-
-############################################################
-# PATH DEFINITIONS
-############################################################
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/mysql/bin:$PATH
-export PATH=/opt/local/bin:$PATH
-export PATH=/opt/local/sbin:$PATH
-export PATH=/Users/username/bin:$PATH
-export PATH=/Applications/MacVim:$PATH
-export PATH=/opt/subversion/bin:$PATH
-
-############################################################
-# ENVIRONMENT VARIABLES
-############################################################
-
-# SVN
-export SVN_EDITOR=vim
-
-# PHING 
-export PHP_COMMAND=/usr/bin/php
-export PHING_HOME=/usr/local/phing
-export PHP_CLASSPATH=${PHING_HOME}/classes
-export PATH=${PATH}:${PHING_HOME}/bin
