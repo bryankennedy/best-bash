@@ -2,6 +2,12 @@
 # No trailing slash
 export HOMEDIR="/home/username/best-bash"
 
+# Select your current OS
+# Options include:
+#   MacOS
+#   Linux
+export OS="MacOS"
+
 ############################################################
 # Do not edit after this line
 ############################################################
