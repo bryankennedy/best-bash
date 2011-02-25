@@ -8,11 +8,6 @@ export CLICOLOR=1
 HISTFILESIZE=1000000000
 HISTSIZE=1000000
 
-# IGNORE CASE IN TAB AUTOCOMPLETION
-bind "set completion-ignore-case on"
-if [ -f /opt/local/etc/bash_completion ]; then
-     . /opt/local/etc/bash_completion
-fi
 ############################################################
 # BASH PROMPT
 ############################################################
@@ -69,3 +64,15 @@ fi
 if [ -f $HOMEDIR/custom/profile ]; then
     . $HOMEDIR/custom/profile
 fi
+
+############################################################
+# Autocompletion
+############################################################
+# Ignore case
+bind "set completion-ignore-case on"
+if [ -f /opt/local/etc/bash_completion ]; then
+     . /opt/local/etc/bash_completion
+fi
+
+# Autocomplete hostnames
+complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
