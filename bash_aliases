@@ -35,21 +35,28 @@ function mc() {
   mkdir -p "$*" && cd "$*" && pwd
 }
 
-###############################################################################
-# Misc. Tools
-###############################################################################
-# Quicker smaller top
-alias topp='top -ocpu -R -F -s 2 -n30'
 
 ###############################################################################
 # OS X Specific Tools
 ###############################################################################
-# Replicate the tree function on OS X
-# TODO - wrap this in a conditional
-#        some of these flags are pretty OS X specific
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-# Copy curent directory to clipboard
-alias cpwd='pwd|xargs echo -n|pbcopy'
+if [ $OS = "MacOS" ]; then
+  # Replicate the tree function on OS X
+  # TODO - wrap this in a conditional
+  #        some of these flags are pretty OS X specific
+  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+  # Copy curent directory to clipboard
+
+  # Quicker smaller top
+  alias topp='top -ocpu -R -F -s 2 -n30'
+
+  # Copy curent directory to clipboard
+  alias cpwd='pwd|xargs echo -n|pbcopy'
+
+  # Dump man pages to Preview
+  pman() {
+    man -t "${1}" | open -f -a /Applications/Preview.app/
+  }
+fi
 
 ###############################################################################
 # Git 
