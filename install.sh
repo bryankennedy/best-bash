@@ -31,10 +31,8 @@ if [ "$CHOICE" != "y" ]; then
     echo "Quitting. Your files are unnafected"
     exit
   fi
-  if [ "$CHOICE" != "n" ] || [ "$CHOICE" != "y" ] ; then
-    echo "I didn't understand, $CHOICE. Quiting."
-    exit
-  fi
+  echo "I didn't understand, $CHOICE. Quiting."
+  exit
 fi
 
 echo "Working"
