@@ -50,8 +50,8 @@ export PATH=/opt/subversion/bin:$PATH
 ############################################################
 # Alias definitions 
 ############################################################
-if [ -f $HOMEDIR/bash_aliases ]; then
-    . $HOMEDIR/bash_aliases
+if [ -f $HOMEDIR/aliases.bash ]; then
+    . $HOMEDIR/aliases.bash
 fi
 
 ############################################################

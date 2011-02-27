@@ -15,4 +15,4 @@ export EDITOR="vim"
 ############################################################
 # Do not edit after this line
 ############################################################
-. $HOMEDIR/bash_profile
+. $HOMEDIR/profile.bash
