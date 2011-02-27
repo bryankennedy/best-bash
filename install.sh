@@ -1,9 +1,31 @@
 #!/bin/bash
+############################################################
+# install.sh
+# Install script for best-bash system.
+#
+# Replaces your home directory bash settings with the
+# best-bash system.
+#
+# Designed to be run after you create a conf file from 
+# conf.sample.
+############################################################
 
-BACKUPDIR=$HOMEDIR/backups/
+############################################################
+# Check to see if you created the conf file to start with
+############################################################
+if [ -f "./conf" ]; then
+  . ./conf
+else
+  echo -e "You must create the conf file before running this script.\nSee instalation instructions."
+  exit
+fi
+BACKUPDIR=$HOMEDIR/backups
 
-echo "This will backup the bash configuration files in your home directory and replace them with symlinks to the best-bash system."
-
+############################################################
+# Ask for Y/n input with a default option
+#
+# Returns the user's choice
+############################################################
 function choice {
   CHOICE=' '
   local prompt="$1"
@@ -25,29 +47,49 @@ function choice {
   esac
 }
 
+############################################################
+# Instructions
+############################################################
+echo "This script will replace your home directory bash files"
+echo "(.profile, .bashrc, .bash_profile, and .bash_logout)"
+echo "with symlinks to the best-bash system."
+echo "Your bash files will be moved to the best-bash/backups directory."
+
+# If NO, or error
 choice "Do you wish to continue [Y/n]: " "y"
 if [ "$CHOICE" != "y" ]; then
   if [ "$CHOICE" = "n" ]; then
-    echo "Quitting. Your files are unnafected"
+    echo "Quitting. Your files are unafected"
     exit
   fi
   echo "I didn't understand, $CHOICE. Quiting."
   exit
 fi
 
-echo "Working"
-#.profile
-#mv ~/.profile $BACKUPDIR
-#ln -s $HOMEDIR/profile.sh ~/.profile
+############################################################
+# Backup home files
+############################################################
+if [ ! -d $BACKUPDIR ]; then
+  mkdir $BACKUPDIR
+fi
 
-#.bashrc
-#mv ~/.bashrc $BACKUPDIR
-#ln -s $HOMEDIR/bashrc.bash ~/.bashrc
+date_string=$(date '+%Y_%m_%d_%H_%S')
 
-#.bash_profile
-#mv ~/.bash_profile $BACKUPDIR
-#ln -s $HOMEDIR/bash_profile.bash ~/.bash_profile
+# Clean out home dir
+bash_files=( profile bashrc bash_profile bash_logout bash_aliases )
+for bash_file in ${bash_files[@]}
+do
+  if [ -f "$HOME/.$bash_file" ]; then
+    mv $HOME/.$bash_file $BACKUPDIR/${bash_file}_${date_string}
+  fi
+done
 
-#.bash_logout
-#mv ~/.bash_logout $BACKUPDIR
-#ln -s $HOMEDIR/bash_logout.bash ~/.bash_logout
+# Link to new files
+# We skip bash_aliases here since it's inlcuded in the profil
+bash_files=( profile bashrc bash_profile bash_logout )
+for bash_file in ${bash_files[@]}
+do
+  ln -s $HOMEDIR/$bash_file.sh ~/.$bash_file
+done
+
+echo "Installed"
