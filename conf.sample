@@ -8,6 +8,10 @@ export HOMEDIR="/home/username/best-bash"
 #   Linux
 export OS="MacOS"
 
+# Editor
+# Enter your favorite editor. Default is Vim.
+export EDITOR="vim"
+
 ############################################################
 # Do not edit after this line
 ############################################################
