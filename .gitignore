@@ -1,3 +1,3 @@
-custom
 conf
-backups/*
+custom/[^.]*
+backups/[^.]*
