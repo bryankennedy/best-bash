@@ -6,5 +6,5 @@
 2. Copy the conf.sample file, name it conf, and edit conf define the variables within.
         cp conf.sample conf
         vi conf
-3. Add a symbolic link from your home folder .bash_profile file to the best-bash conf file.
-        ln -s conf ~/.bash_profile
+3. Run the install.sh script. This will backup your home dir bash files and replace them with symlinks to the best-bash system.
+        ./install.sh
