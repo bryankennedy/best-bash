@@ -92,4 +92,12 @@ do
   ln -s $HOMEDIR/$bash_file.sh ~/.$bash_file
 done
 
+############################################################
+# Create the custom folder for personalization
+############################################################
+CUSTOMDIR=$HOMEDIR/custom
+if [ ! -d $CUSTOMDIR ]; then
+  mkdir $CUSTOMDIR
+fi
+
 echo "Installed"
