@@ -44,7 +44,6 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-export PATH=/Users/username/bin:$PATH
 export PATH=/Applications/MacVim:$PATH
 export PATH=/opt/subversion/bin:$PATH
 
@@ -64,12 +63,8 @@ fi
 # Since they are in their own folder, they can even be a 
 # seperate Git repo themselves.
 ############################################################
-if [ -f $HOMEDIR/custom/aliases ]; then
-    . $HOMEDIR/custom/aliases
-fi
-
-if [ -f $HOMEDIR/custom/profile ]; then
-    . $HOMEDIR/custom/profile
+if [ -d $HOMEDIR/custom ]; then
+    . $HOMEDIR/custom/*
 fi
 
 ############################################################
