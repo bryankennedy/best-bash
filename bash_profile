@@ -2,7 +2,7 @@
 # Bash settings
 ############################################################
 # Set terminal colors
-Export CLICOLOR=1
+export CLICOLOR=1
 
 # Large command history file
 hISTFILESIZE=1000000000
@@ -64,7 +64,10 @@ fi
 # seperate Git repo themselves.
 ############################################################
 if [ -d $HOMEDIR/custom ]; then
-    . $HOMEDIR/custom/*
+  for f in $HOMEDIR/custom/*
+  do
+    . $f
+  done
 fi
 
 ############################################################
