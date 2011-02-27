@@ -1,11 +1,11 @@
 ############################################################
-# BASH SETTINGS
+# Bash settings
 ############################################################
-# SET TERMINAL COLORS
-export CLICOLOR=1
+# Set terminal colors
+Export CLICOLOR=1
 
-# LARGE COMMAND HISTORY FILE
-HISTFILESIZE=1000000000
+# Large command history file
+hISTFILESIZE=1000000000
 HISTSIZE=1000000
 
 # Close root after n seconds of inactivity
@@ -15,7 +15,7 @@ HISTSIZE=1000000
 export PAGER="less"
 
 ############################################################
-# BASH PROMPT
+# Bash prompt
 ############################################################
 # If you edit the prompt at all, make sure to escape any characters
 # that don't print. It will look like your prompt is working
@@ -37,7 +37,7 @@ export GIT_EDITOR=$EDITOR
 export SVN_EDITOR=$EDITOR
 
 ############################################################
-# PATH DEFINITIONS
+# Path definitions
 ############################################################
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
@@ -48,14 +48,14 @@ export PATH=/Applications/MacVim:$PATH
 export PATH=/opt/subversion/bin:$PATH
 
 ############################################################
-# ALIAS DEFINITIONS 
+# Alias definitions 
 ############################################################
 if [ -f $HOMEDIR/bash_aliases ]; then
     . $HOMEDIR/bash_aliases
 fi
 
 ############################################################
-# CUSTOM DEFINTIONS
+# Custom defintions
 #
 # These are defined in a seperate folder that can be ignored
 # by this Git repo, and customized across multiple deploys

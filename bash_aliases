@@ -4,9 +4,11 @@
 alias c='clear'
 alias g='grep'
 alias xx="exit"
+# Ask before doing anything dangerous
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
+# Readable path
 alias path='echo -e ${PATH//:/\\n}'
 
 ###############################################################################
