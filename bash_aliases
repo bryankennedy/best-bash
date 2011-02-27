@@ -119,3 +119,8 @@ alias gd='git diff'
 alias gps='git push'
 alias gpsd='git push origin develop'
 alias gpsm='git push origin master'
+
+###############################################################################
+# Reload bash 
+###############################################################################
+alias reload='. ~/.bash_profile'
