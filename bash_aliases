@@ -37,9 +37,9 @@ alias .....='cd ../../../..'
 # Compress the cd, ls -l series of commands.
 function cl () {
    if [ $# = 0 ]; then
-      cd && ll
+      cd && l
    else
-      cd "$*" && ll
+      cd "$*" && l
    fi
 }
 # Alias for common miss-type
@@ -94,12 +94,23 @@ if [ $OS = "MacOS" ]; then
   pman() {
     man -t "${1}" | open -f -a /Applications/Preview.app/
   }
+
+  # Vim
+  alias vi="mvim"
+fi
+
+###############################################################################
+# Vim 
+###############################################################################
+# Even if you aren't on MacOS, never use vi, always use VIM
+if [ $OS != "MacOS" ]; then
+  alias vi="vim"
 fi
 
 ###############################################################################
 # Git 
 ###############################################################################
-alias gs='git status'
+alias gs='git status -s -b'
 alias gc='git commit'
 alias gco='git checkout'
 alias gd='git diff'
