@@ -123,8 +123,11 @@ alias gc='git commit'
 alias gco='git checkout'
 alias gd='git diff'
 alias gps='git push'
-alias gpsd='git push origin develop'
 alias gpsm='git push origin master'
+alias gpsd='git push origin develop'
+alias gpl='git pull'
+alias gplm='git pull origin master'
+alias gpld='git pull origin develop'
 
 ###############################################################################
 # Reload bash 
