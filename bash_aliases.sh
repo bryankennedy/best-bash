@@ -120,7 +120,7 @@ fi
 ###############################################################################
 alias gs='git status -s -b'
 alias gc='git commit'
-alias gco='git checkout'
+alias gco='git clone'
 alias gd='git diff'
 alias gps='git push'
 alias gpsm='git push origin master'
