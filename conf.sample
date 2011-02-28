@@ -1,6 +1,8 @@
-# Enter the directory where you keep the best-bash repo
-# No trailing slash
-export HOMEDIR="/home/username/best-bash"
+#!/bin/bash
+############################################################
+# conf
+# User editable configuration file
+############################################################
 
 # Select your current OS
 # Options include:
@@ -11,8 +13,3 @@ export OS="MacOS"
 # Editor
 # Enter your favorite editor. Default is Vim.
 export EDITOR="vim"
-
-############################################################
-# Do not edit after this line
-############################################################
-. $HOMEDIR/profile.bash

@@ -3,12 +3,14 @@
 # bash_profile.sh
 # Interactive bash shell settings
 ############################################################
+HOMEDIR=$HOME/.dotfiles/best-bash
 
 # Include conf file
-. ./conf
+. $HOMEDIR/conf
 
-# Include bashrc settings
+# Include bashrc and profile settings
 . $HOMEDIR/bashrc.sh
+. $HOMEDIR/profile.sh
 
 ############################################################
 # Bash settings

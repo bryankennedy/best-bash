@@ -1,5 +1,8 @@
 #!/bin/bash
+############################################################
+# bash_logout.sh
 # Executed by bash when login shell exits.
+############################################################
 
 # when leaving the console clear the screen to increase privacy
 if [ "$SHLVL" = 1 ]; then

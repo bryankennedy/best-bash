@@ -1,11 +1,12 @@
-#!/bin/bash
 ############################################################
 # profile.sh
 # Environment settings that apply to all shells.
 ############################################################
 
+HOMEDIR=$HOME/.dotfiles/best-bash
+
 # Include conf file
-. ./conf
+. $HOMEDIR/conf
 
 ############################################################
 # Editors

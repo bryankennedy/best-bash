@@ -9,8 +9,10 @@
 # sessions like scp.
 [ -z "$PS1" ] && return
 
+HOMEDIR=$HOME/.dotfiles/best-bash
+
 # Include conf file
-. ./conf
+. $HOMEDIR/conf
 
 ############################################################
 # History

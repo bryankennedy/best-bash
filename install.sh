@@ -10,11 +10,14 @@
 # conf.sample.
 ############################################################
 
+HOMEDIR=$HOME/.dotfiles/best-bash
+
 ############################################################
 # Check to see if you created the conf file to start with
 ############################################################
-if [ -f "./conf" ]; then
-  . ./conf
+# Include conf file
+if [ -f "$HOMEDIR/conf" ]; then
+  . $HOMEDIR/conf
 else
   echo -e "You must create the conf file before running this script.\nSee instalation instructions."
   exit
