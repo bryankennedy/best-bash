@@ -54,12 +54,16 @@ fi
 # Since they are in their own folder, they can even be a 
 # seperate Git repo themselves.
 ############################################################
-if [ -d $HOMEDIR/custom ]; then
+shopt -s nullglob
+shopt -s dotglob
+files=($HOMEDIR/custom/*)
+if [ ${#files[@]} -gt 0 ]; then
   for f in $HOMEDIR/custom/*
   do
     . $f
   done
 fi
+shopt -u nullglob
 
 ############################################################
 # Autocompletion
