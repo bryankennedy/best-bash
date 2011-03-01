@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ############################################################
 # bash_profile.sh
 # Interactive bash shell settings

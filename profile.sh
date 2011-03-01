@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ############################################################
 # profile.sh
 # Environment settings that apply to all shells.

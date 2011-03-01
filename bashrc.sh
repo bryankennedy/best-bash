@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Executed by bash for non-login shells.
 # On Linux systems this file is loaded when you are
 # actually sitting at the computer ad opposed to 

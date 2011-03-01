@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ############################################################
 # bash_logout.sh
 # Executed by bash when login shell exits.

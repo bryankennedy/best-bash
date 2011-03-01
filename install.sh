@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ############################################################
 # install.sh
 # Install script for best-bash system.
