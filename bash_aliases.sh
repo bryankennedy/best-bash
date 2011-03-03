@@ -119,7 +119,7 @@ fi
 # Git 
 ###############################################################################
 alias gs='git status -s -b'
-alias gc='git commit'
+alias gc='git commit -v'
 alias gco='git checkout'
 alias gd='git diff'
 alias gps='git push'
