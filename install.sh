@@ -82,7 +82,7 @@ date_string=$(date '+%Y_%m_%d_%H_%S')
 bash_files=( profile bashrc bash_profile bash_logout bash_aliases )
 for bash_file in ${bash_files[@]}
 do
-  if [ -f "$HOME/.$bash_file" ]; then
+  if [ -f "$HOME/.$bash_file" -o ]; then
     mv $HOME/.$bash_file $BACKUPDIR/${bash_file}_${date_string}
   fi
 done

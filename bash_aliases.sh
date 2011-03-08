@@ -108,7 +108,7 @@ if [ $OS = "MacOS" ]; then
 fi
 
 ###############################################################################
-# Vim 
+# Vim
 ###############################################################################
 # Even if you aren't on MacOS, never use vi, always use VIM
 if [ $OS != "MacOS" ]; then
@@ -116,10 +116,12 @@ if [ $OS != "MacOS" ]; then
 fi
 
 ###############################################################################
-# Git 
+# Git
 ###############################################################################
 alias gs='git status -s -b'
 alias gc='git commit -v'
+alias ga='git add'
+alias gaa='git add -A'
 alias gco='git checkout'
 alias gd='git diff'
 alias gps='git push'
@@ -130,6 +132,6 @@ alias gplm='git pull origin master'
 alias gpld='git pull origin develop'
 
 ###############################################################################
-# Reload bash 
+# Reload bash
 ###############################################################################
 alias reload='. ~/.bash_profile'
