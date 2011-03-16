@@ -23,9 +23,14 @@ alias path='echo -e ${PATH//:/\\n}'
 # List normal files
 alias l='ls -lh'
 # List everything, including hidden files
-alias ll='ls -lah'
+alias ll='ls -hal'
+# List everything, by reverse date
+alias lld='ls -thral'
 # List for wildcard searches without all those subdir files
-alias lw='ls -lahd'
+# usage:
+#     lw thi*
+#     lw *.txt
+alias lw='ls -dhal'
 
 ###############################################################################
 # Searching
