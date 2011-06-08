@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Executed by bash for non-login shells.
 # On Linux systems this file is loaded when you are
-# actually sitting at the computer ad opposed to 
+# actually sitting at the computer ad opposed to
 # logging in via SSH. MacOS does not respect this dichotomy.
 
 # If not running interactively, don't do anything
@@ -15,9 +15,15 @@ HOMEDIR=$HOME/.dotfiles/best-bash
 . $HOMEDIR/conf
 
 ############################################################
+# Includes
+############################################################
+# Include bash scripts in the includes folder
+source $HOMEDIR/includes/git-completion.sh
+
+############################################################
 # History
 ############################################################
-# Don't put duplicate lines in the history. 
+# Don't put duplicate lines in the history.
 HISTCONTROL=ignoreboth
 
 # Append to the history file, don't overwrite it
