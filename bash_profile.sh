@@ -35,11 +35,13 @@ export PAGER="less"
 # http://serverfault.com/questions/224306/why-does-ctrl-r-act-weirdly-showing-only-part-of-a-command-on-os-x
 # This explains why we set the TERM to xterm
 # http://stackoverflow.com/questions/35563/how-do-i-make-bash-reverse-search-work-in-terminal-app-without-it-displaying-garb
+# Git completion scripts provide branch names in PS1 thus:
+# http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
 export TERM=xterm
-PS1='\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]:\[\033[1;34m\]\w\[\033[0m\] \$ ' 
+PS1='\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \$ '
 
 ############################################################
-# Alias definitions 
+# Alias definitions
 ############################################################
 if [ -f $HOMEDIR/bash_aliases.sh ]; then
     . $HOMEDIR/bash_aliases.sh
@@ -51,7 +53,7 @@ fi
 # These are defined in a seperate folder that can be ignored
 # by this Git repo, and customized across multiple deploys
 # of this bash profile.
-# Since they are in their own folder, they can even be a 
+# Since they are in their own folder, they can even be a
 # seperate Git repo themselves.
 ############################################################
 shopt -s nullglob
