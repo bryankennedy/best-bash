@@ -123,7 +123,7 @@ fi
 ###############################################################################
 # Git
 ###############################################################################
-alias gs='git status -s -b'
+alias gs='git status -sb'
 alias gc='git commit -v'
 alias ga='git add'
 alias gaa='git add -A'
