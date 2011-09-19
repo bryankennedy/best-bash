@@ -11,17 +11,6 @@
 ############################################################
 
 HOMEDIR=$HOME/.dotfiles/best-bash
-
-############################################################
-# Check to see if you created the conf file to start with
-############################################################
-# Include conf file
-if [ -f "$HOMEDIR/conf" ]; then
-  . $HOMEDIR/conf
-else
-  echo -e "You must create the conf file before running this script.\nSee instalation instructions."
-  exit
-fi
 BACKUPDIR=$HOMEDIR/backups
 
 ############################################################
@@ -89,7 +78,7 @@ done
 
 # Link to new files
 # We skip bash_aliases here since it's inlcuded in the profil
-bash_files=( profile bashrc bash_profile bash_logout )
+bash_files=( bashrc bash_profile bash_logout )
 for bash_file in ${bash_files[@]}
 do
   ln -s $HOMEDIR/$bash_file.sh ~/.$bash_file
