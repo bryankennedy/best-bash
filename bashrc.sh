@@ -1,9 +1,29 @@
 #!/usr/bin/env bash
-# Executed by bash for non-login shells.
-# On Linux systems this file is loaded when you are
-# actually sitting at the computer ad opposed to
-# logging in via SSH. MacOS does not respect this dichotomy.
+############################################################
+# bashrc.sh
+#
+# This is the primary bash configuration for all shells.
+#
+# Linux GUI
+# On Linux machines bash automatically loads this file
+# first for non-login shells (GUI windows when you are
+# actually sitting at the computer).
+#
+# OS X GUI
+# OS X does treats each new Terminal window as an interactive
+# login shell, so this file would not normally be loaded.
+# To work around this wierdness, this bashrc file is included
+# from the bash_profile file.
+#
+# Linux & OS X SSH
+# This file would not normally be loaded in a SSH session.
+# So this file is included from the bash_profile file.
+############################################################
 
+############################################################
+# Setup
+############################################################
+# SCP
 # If not running interactively, don't do anything
 # This prevents these rules from being loaded for non-interactive
 # sessions like scp.
