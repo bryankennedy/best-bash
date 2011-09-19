@@ -31,14 +31,14 @@
 
 HOMEDIR=$HOME/.dotfiles/best-bash
 
-# Include conf file
-. $HOMEDIR/conf
-
 ############################################################
-# Includes
+# OS
 ############################################################
-# Include bash scripts in the includes folder
-source $HOMEDIR/includes/git-completion.sh
+if [ "{$OS}" == "Darwin" ]; then
+  OS=mac
+else
+  OS=linux
+fi
 
 ############################################################
 # History
