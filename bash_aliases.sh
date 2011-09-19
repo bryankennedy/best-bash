@@ -90,7 +90,7 @@ extract () {
 ###############################################################################
 # OS X Specific Tools
 ###############################################################################
-if [ $OS = "mac" ]; then
+if [ $OS == 'mac' ]; then
   # Replicate the tree function on OS X
   # TODO - wrap this in a conditional
   #        some of these flags are pretty OS X specific
@@ -110,6 +110,7 @@ if [ $OS = "mac" ]; then
 
   # Vim
   alias vi="mvim"
+  alias vim="mvim"
 fi
 
 ###############################################################################

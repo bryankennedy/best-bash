@@ -31,13 +31,18 @@
 
 HOMEDIR=$HOME/.dotfiles/best-bash
 
+lowercase(){
+  echo "$1" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
+}
+
 ############################################################
 # OS
 ############################################################
-if [ "{$OS}" == "Darwin" ]; then
-  OS=mac
+OS=`lowercase \`uname\``
+if [ $OS == "darwin" ]; then
+  OS='mac'
 else
-  OS=linux
+  OS='linux'
 fi
 
 ############################################################
