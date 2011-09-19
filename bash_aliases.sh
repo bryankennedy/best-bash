@@ -90,7 +90,7 @@ extract () {
 ###############################################################################
 # OS X Specific Tools
 ###############################################################################
-if [ $OS = "MacOS" ]; then
+if [ $OS = "mac" ]; then
   # Replicate the tree function on OS X
   # TODO - wrap this in a conditional
   #        some of these flags are pretty OS X specific
@@ -115,8 +115,8 @@ fi
 ###############################################################################
 # Vim
 ###############################################################################
-# Even if you aren't on MacOS, never use vi, always use VIM
-if [ $OS != "MacOS" ]; then
+# Even if you aren't on MacOS, never use vi, always use vim
+if [ $OS != "mac" ]; then
   alias vi="vim"
 fi
 
@@ -140,4 +140,5 @@ alias gb='git branch'
 ###############################################################################
 # Reload bash
 ###############################################################################
+# TODO fix
 alias reload='. ~/.bash_profile'
