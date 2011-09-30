@@ -108,9 +108,11 @@ if [ $OS == 'mac' ]; then
     man -t "${1}" | open -f -a /Applications/Preview.app/
   }
 
-  # Vim
-  alias vi="mvim"
-  alias vim="mvim"
+  if [ -f /Applications/MacVim/mvim ] ; then
+    # Vim
+    alias vi="mvim"
+    alias vim="mvim"
+  fi
 fi
 
 ###############################################################################
