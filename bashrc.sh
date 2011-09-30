@@ -71,6 +71,11 @@ export PATH=/Applications/MacVim:$PATH
 export PATH=/opt/subversion/bin:$PATH
 
 ############################################################
+# Useful variables
+############################################################
+export DATE=$(date +%Y_%m_%d_h%H_m%M)
+
+############################################################
 # Prompt
 ############################################################
 # set a fancy prompt (non-color, unless we know we "want" color)
