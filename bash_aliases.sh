@@ -137,6 +137,7 @@ alias gpl='git pull'
 alias gplm='git pull origin master'
 alias gpld='git pull origin develop'
 alias gb='git branch'
+alias gba='git branch -a'
 
 ###############################################################################
 # Reload bash
