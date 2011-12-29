@@ -126,7 +126,12 @@ fi
 ###############################################################################
 # Git
 ###############################################################################
-alias gs='git status -sb'
+alias gs='git status -s'
+# Removing the -b flag
+# It isn't supported until Git 1.7.2 which isn't common in CentOS and other
+# Linux rpms just yet. So, removing this makes this bash profile a bit more
+# portable for now.
+# alias gs='git status -sb'
 alias gc='git commit -v'
 alias ga='git add'
 alias gaa='git add -A'
