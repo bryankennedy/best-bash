@@ -112,7 +112,7 @@ unset color_prompt force_color_prompt
 # Git completion scripts provide branch names in PS1 thus:
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
 export TERM=xterm
-PS1='\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \$ '
+PS1='\n\[\033[1;31m\]\#\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \$ '
 
 ############################################################
 # Color
