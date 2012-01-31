@@ -132,8 +132,10 @@ alias gs='git status -s'
 # Linux rpms just yet. So, removing this makes this bash profile a bit more
 # portable for now.
 # alias gs='git status -sb'
+
 alias gc='git commit -v'
 alias ga='git add'
+alias gap='git add -p'
 alias gaa='git add -A'
 alias gco='git checkout'
 alias gd='git diff'
