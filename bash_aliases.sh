@@ -39,6 +39,9 @@ function findin () {
   find . -exec grep -q "$1" '{}' \; -print
 }
 
+# Find TODOs in the current directory
+alias todos = grep -RIn TODO ./*
+
 ###############################################################################
 # Changing directories
 ###############################################################################
