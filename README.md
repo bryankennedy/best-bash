@@ -1,4 +1,4 @@
-# A first pass at sharing my bash environment
+# Sharing my bash environment
 
 ## Instalation
 Put this folder in `~/.dotfiles/best-bash` and `cd` to the directory.
