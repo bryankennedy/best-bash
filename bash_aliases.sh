@@ -154,6 +154,13 @@ alias gb='git branch'
 alias gba='git branch -a'
 
 ###############################################################################
+# Generate random files
+###############################################################################
+# TODO: write command to make a random text file
+#alias gent =
+alias geni='convert -size 100x100 xc: +noise Random random.png'
+
+###############################################################################
 # Reload bash
 ###############################################################################
 # TODO fix
