@@ -48,10 +48,11 @@ fi
 ############################################################
 # Editors
 ############################################################
-EDITOR='vim'
-export VISUAL=$EDITOR
-export GIT_EDITOR=$EDITOR
-export SVN_EDITOR=$EDITOR
+#EDITOR='vim'
+#export VISUAL=$EDITOR
+#export GIT_EDITOR=$EDITOR
+#export SVN_EDITOR=$EDITOR
+export EDITOR='mvim -f'
 
 ############################################################
 # Path definitions
