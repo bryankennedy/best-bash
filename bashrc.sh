@@ -49,10 +49,11 @@ fi
 # Editors
 ############################################################
 #EDITOR='vim'
-#export VISUAL=$EDITOR
-#export GIT_EDITOR=$EDITOR
-#export SVN_EDITOR=$EDITOR
-export EDITOR='mvim -f'
+if [ $OS != "mac" ]; then
+  export EDITOR='mvim -f'
+else
+  export EDITOR='vim'
+fi
 
 ############################################################
 # Path definitions
