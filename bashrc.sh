@@ -48,11 +48,8 @@ fi
 ############################################################
 # Editors
 ############################################################
-if [ $OS != "mac" ]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim -f'
-fi
+# Set vim as the default editor for things like Git commits
+export EDITOR='vim'
 
 ############################################################
 # Path definitions
