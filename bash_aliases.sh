@@ -105,6 +105,10 @@ if [ $OS == 'mac' ]; then
   # Copy curent directory to clipboard
 
   # Quicker smaller top
+  # -R don't show memory
+  # -F don't show frameworks
+  # -s loop every two seconds
+  # -n show 30 processes
   alias topp='top -ocpu -R -F -s 2 -n30'
 
   # Copy curent directory to clipboard
