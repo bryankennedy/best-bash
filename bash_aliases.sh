@@ -124,6 +124,12 @@ if [ $OS == 'mac' ]; then
     alias vi="mvim"
     alias vim="mvim"
   fi
+
+  # Easy command to start and stop PostgreSQL server
+  if [ -d /usr/local/var/postgres ] ; then
+    alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+    alias pgq='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+  fi
 fi
 
 ###############################################################################
