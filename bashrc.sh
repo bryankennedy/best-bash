@@ -126,10 +126,12 @@ fi
 ############################################################
 # History
 ############################################################
-# Don't put duplicate lines in the history.
-HISTCONTROL=ignoreboth
+# Don't write duplicate lines in the bash_history
+export HISTCONTROL=ignoredups
 
-# Append to the history file, don't overwrite it
+# Append to the history file, don't overwrite it. This will cause some
+# duplicates, even with the setting above since t a new history setting is 
+# saved with each session.
 shopt -s histappend
 
 # Large command history file
