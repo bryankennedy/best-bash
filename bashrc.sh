@@ -61,7 +61,6 @@ export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
 # TODO conditional
 export PATH=/Applications/MacVim:$PATH
-export PATH=/opt/subversion/bin:$PATH
 
 ############################################################
 # Useful variables
