@@ -10,8 +10,14 @@
 # conf.sample.
 ############################################################
 
-HOMEDIR=$HOME/.dotfiles/best-bash
-BACKUPDIR=$HOMEDIR/backups
+BASHDIR=${PWD}
+BACKUPDIR=$BASHDIR/backups
+CUSTOMDIR=$BASHDIR/custom
+
+# Link to the install directory
+# This allows the bashrc to source the includes regardless of the
+# custom install location.
+ln -s $BASHDIR ~/.best-bash/
 
 ############################################################
 # Ask for Y/n input with a default option
@@ -81,13 +87,12 @@ done
 bash_files=( bashrc bash_profile bash_logout )
 for bash_file in ${bash_files[@]}
 do
-  ln -s $HOMEDIR/$bash_file.sh ~/.$bash_file
+  ln -s $BASHDIR/$bash_file.sh ~/.$bash_file
 done
 
 ############################################################
 # Create the custom folder for personalization
 ############################################################
-CUSTOMDIR=$HOMEDIR/custom
 if [ ! -d $CUSTOMDIR ]; then
   mkdir $CUSTOMDIR
 fi
