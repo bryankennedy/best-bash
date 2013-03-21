@@ -116,8 +116,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Large command history file
-HISTFILESIZE=1000000000
-HISTSIZE=1000000
+HISTFILESIZE=1000000
+HISTSIZE=10000
 
 ############################################################
 # Autocompletion
