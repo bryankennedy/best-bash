@@ -39,11 +39,11 @@ lowercase(){
 ############################################################
 # Detect OS
 ############################################################
-OS='lowercase \`uname\`'
+OS=`lowercase \`uname\``
 if [ $OS == "darwin" ]; then
-  OS='mac'
+  OS="mac"
 else
-  OS='linux'
+  OS="linux"
 fi
 
 ############################################################
@@ -58,9 +58,7 @@ export EDITOR='vim'
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
-export PATH=/opt/local/bin:$PATH
-export PATH=/opt/local/sbin:$PATH
-if [$OS == "mac" ]; then
+if [ "$OS" = "mac" ]; then
   export PATH=/Applications/MacVim:$PATH
 fi
 
