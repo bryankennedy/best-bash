@@ -38,7 +38,7 @@ lowercase(){
 ############################################################
 # OS
 ############################################################
-OS=`lowercase \`uname\``
+OS='lowercase \`uname\`'
 if [ $OS == "darwin" ]; then
   OS='mac'
 else
@@ -59,9 +59,9 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-# TODO conditional
-export PATH=/Applications/MacVim:$PATH
-export PATH=/opt/subversion/bin:$PATH
+if [$OS == "mac" ]; then
+  export PATH=/Applications/MacVim:$PATH
+fi
 
 ############################################################
 # Useful variables
