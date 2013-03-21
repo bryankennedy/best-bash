@@ -29,7 +29,8 @@
 # sessions like scp.
 [ -z "$PS1" ] && return
 
-HOMEDIR=$HOME/.dotfiles/best-bash
+# The install script creates this symlink to the best-bash system
+BASHDIR=$HOME/.best-bash
 
 lowercase(){
   echo "$1" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
@@ -131,6 +132,9 @@ bind "set completion-ignore-case on"
 # Autocomplete hostnames
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e 's/,.*//g' | uniq | grep -v "\["`;)" ssh
 
+# Include bash scripts in the includes folder
+source $BASHDIR/includes/git-completion.sh
+
 ############################################################
 # Security
 ############################################################
@@ -150,22 +154,15 @@ shopt -s checkwinsize
 # Less is more
 export PAGER="less"
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
 
 ############################################################
 # Includes
 ############################################################
 # Aliases
-. $HOMEDIR/bash_aliases.sh
+source $BASHDIR/bash_aliases.sh
 
-# Include bash scripts in the includes folder
-source $HOMEDIR/includes/git-completion.sh
 
 # Load custom defintions
 #
@@ -175,10 +172,10 @@ source $HOMEDIR/includes/git-completion.sh
 # Since they are in their own folder, they can even be a
 # seperate Git repo themselves.
 shopt -s nullglob
-files=($HOMEDIR/custom/*)
+files=($BASHDIR/custom/*)
 if [ ${#files[@]} -gt 0 ]; then
-  for f in $HOMEDIR/custom/*
+  for f in $BASHDIR/custom/*
   do
-    . $f
+    source $f
   done
 fi
