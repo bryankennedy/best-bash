@@ -14,11 +14,6 @@ BASHDIR=${PWD}
 BACKUPDIR=$BASHDIR/backups
 CUSTOMDIR=$BASHDIR/custom
 
-# Link to the install directory
-# This allows the bashrc to source the includes regardless of the
-# custom install location.
-ln -s $BASHDIR ~/.best-bash/
-
 ############################################################
 # Ask for Y/n input with a default option
 #
@@ -83,6 +78,12 @@ do
 done
 
 # Link to new files
+
+# Link to the install directory
+# This allows the bashrc to source the includes regardless of the
+# custom install location.
+ln -s $BASHDIR ~/.best-bash
+
 # We skip bash_aliases here since it's inlcuded in the profil
 bash_files=( bashrc bash_profile bash_logout )
 for bash_file in ${bash_files[@]}
