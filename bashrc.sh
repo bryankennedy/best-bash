@@ -74,25 +74,30 @@ export DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
 # If you edit the prompt at all, make sure to escape any
 # non-printing characters with:
 # \[033[ and \]
+#
 # If you don't do this, the prompt will look like it is working
 # but there will be problems with CTRL-r history searches.
 # See:
 # http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 # http://serverfault.com/questions/224306/why-does-ctrl-r-act-weirdly-showing-only-part-of-a-command-on-os-x
 #
-# This explains why we set the TERM to xterm
-# http://stackoverflow.com/questions/35563/how-do-i-make-bash-reverse-search-work-in-terminal-app-without-it-displaying-garb
-#
 # Git completion scripts provide branch names in PS1 thus:
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
+#
+# This explains why we set the TERM to xterm
+# http://stackoverflow.com/questions/35563/how-do-i-make-bash-reverse-search-work-in-terminal-app-without-it-displaying-garb
 export TERM=xterm
+
 PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \n\$ '
+
 ############################################################
 # Color
 ############################################################
 # Set terminal colors
 export CLICOLOR=1
-# enable color support of ls and also add handy aliases
+
+# Enable color support of ls and also add handy aliases
+# This is most useful on linux systems
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
