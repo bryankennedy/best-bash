@@ -173,8 +173,9 @@ source $BASHDIR/bash_aliases.sh
 # seperate Git repo themselves.
 shopt -s nullglob
 files=($BASHDIR/custom/*)
+
 if [ ${#files[@]} -gt 0 ]; then
-  for f in $BASHDIR/custom/*
+  for f in $BASHDIR/custom/\*
   do
     source $f
   done
