@@ -84,7 +84,7 @@ done
 # custom install location.
 ln -s $BASHDIR ~/.best-bash
 
-# We skip bash_aliases here since it's inlcuded in the profil
+# We skip bash_aliases here since it's inlcuded in the profile
 bash_files=( bashrc bash_profile bash_logout )
 for bash_file in ${bash_files[@]}
 do
