@@ -126,7 +126,9 @@ shopt -s dotglob
 bind "set completion-ignore-case on"
 
 # Autocomplete hostnames
-complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e 's/,.*//g' | uniq | grep -v "\["`;)" ssh
+if [ -e ~/.ssh/known_hosts ]; then
+  complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e 's/,.*//g' | uniq | grep -v "\["`;)" ssh
+fi
 
 # Include bash scripts in the includes folder
 source $BASHDIR/includes/git-completion.sh
