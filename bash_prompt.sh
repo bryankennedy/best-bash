@@ -146,23 +146,21 @@ function get_git_status() {
   branch_ahead="$(parse_git_ahead)"
   branch_behind="$(parse_git_behind)"
 
-  echo " "
-
   # Iterate through all the cases and if it matches, then echo
   if [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
-    echo "⬢"
+    echo " ⬢"
   elif [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 ]]; then
-    echo "▲"
+    echo " ▲"
   elif [[ "$dirty_branch" == 1 && "$branch_behind" == 1 ]]; then
-    echo "▼"
+    echo " ▼"
   elif [[ "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
-    echo "⬡"
+    echo " ⬡"
   elif [[ "$branch_ahead" == 1 ]]; then
-    echo "△"
+    echo " △"
   elif [[ "$branch_behind" == 1 ]]; then
-    echo "▽"
+    echo " ▽"
   elif [[ "$dirty_branch" == 1 ]]; then
-    echo "*"
+    echo " *"
   fi
 }
 
