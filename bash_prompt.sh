@@ -146,6 +146,8 @@ function get_git_status() {
   branch_ahead="$(parse_git_ahead)"
   branch_behind="$(parse_git_behind)"
 
+  echo " "
+
   # Iterate through all the cases and if it matches, then echo
   if [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
     echo "⬢"
@@ -174,7 +176,7 @@ get_git_info () {
     output="$branch"
 
     # Add on the git status
-    output="$output $(get_git_status)"
+    output="$output$(get_git_status)"
 
     # Echo our output
     echo "$output"
