@@ -185,7 +185,7 @@ fi
 # This needs to live down here at the bottom of the script so that we get
 # any custom paths set for the which command. I am loading MacVim with Boxen,
 # and that path is defined in my custom loads.
-vipath=$(which mvim)
+vipath=$(which mvim 2> /dev/null) # Silence errors if not present
 rc=$?
 if [ "$OS" = "mac" ]; then
   if [[ $rc == 0 ]]; then
