@@ -81,7 +81,7 @@ export DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
 #
 # Sourcing a modified version of Todd Wolfson's sexy-bash-prompt
-source bash_prompt.sh
+source $BASHDIR/bash_prompt.sh
 
 ############################################################
 # Color
