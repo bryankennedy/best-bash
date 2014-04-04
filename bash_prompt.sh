@@ -3,23 +3,17 @@
 # https://github.com/twolfson/sexy-bash-prompt
 # Forked from gf3, https://gist.github.com/gf3/306785
 
-# Otherwise, use ANSI escape sequences for coloring
-  # If you would like to customize your colors, use
-  # DEV: 30-39 lines up 0-9 from `tput`
-  # for i in $(seq 0 109); do
-  #   echo -n -e "\033[1;${i}mText$(tput sgr0) "
-  #   echo "\033[1;${i}m"
-  # done
+# Customizations by bryankennedy
 
-  prompt_reset="\033[m"
-  prompt_time_color="\033[1;31m" # RED
-  prompt_user_color="\033[1;35m" # PURPLE
-  prompt_preposition_color="\033[1;37m" # WHITE
-  prompt_device_color="\033[1;33m" # YELLOW
-  prompt_dir_color="\033[1;34m" # BLUE
-  prompt_git_status_color="\033[1;31m" # RED
-  prompt_git_progress_color="\033[1;33m" # YELLOW
-  prompt_symbol_color="" # NORMAL
+prompt_reset="\033[m"
+prompt_time_color="\033[1;31m" # RED
+prompt_user_color="\033[1;35m" # PURPLE
+prompt_preposition_color="\033[1;37m" # WHITE
+prompt_device_color="\033[1;33m" # YELLOW
+prompt_dir_color="\033[1;34m" # BLUE
+prompt_git_status_color="\033[1;31m" # RED
+prompt_git_progress_color="\033[1;33m" # YELLOW
+prompt_symbol_color="" # NORMAL
 
 # Apply any color overrides that have been set in the environment
 if [[ -n "$PROMPT_TIME_COLOR" ]]; then prompt_time_color="$PROMPT_TIME_COLOR"; fi
@@ -206,7 +200,7 @@ PS1="\n\
 \[$prompt_preposition_color\]\[$prompt_reset\] \
 \$( is_on_git && \
   echo -n \"\[$prompt_preposition_color\]\[$prompt_reset\]\" && \
-  echo -n \"\[$prompt_git_status_color\]\$(get_git_info)\" && \
+  echo -n \"\[$prompt_git_status_color\]\$(get_git_info)\"&& \
   echo -n \"\[$prompt_git_progress_color\]\$(get_git_progress)\" && \
   echo -n \"\[$prompt_preposition_color\]\[$prompt_reset\] \" && \
   echo -n \"\[$prompt_preposition_color\]\")\[$prompt_reset\]\
