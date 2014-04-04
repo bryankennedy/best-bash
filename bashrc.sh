@@ -79,8 +79,9 @@ export DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
 #
 # Git completion scripts provide branch names in PS1 thus:
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
-
-PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \n\$ '
+#
+# Sourcing a modified version of Todd Wolfson's sexy-bash-prompt
+source bash_prompt.sh
 
 ############################################################
 # Color
