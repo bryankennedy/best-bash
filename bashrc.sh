@@ -58,9 +58,6 @@ export EDITOR='vim'
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
-if [ "$OS" = "mac" ]; then
-  export PATH=/Applications/MacVim:$PATH
-fi
 
 ############################################################
 # Useful variables
@@ -178,3 +175,26 @@ if [ ${#files[@]} -gt 0 ]; then
   done
 fi
 
+#
+# MacVim Setup
+#
+# If we're on a Mac and mvim is present, then hijack the vi symlink to mvim
+# and pass the --remote-tab-silent paramater so that new `vi filename`
+# requests open in the same window with a new tab.
+#
+# This needs to live down here at the bottom of the script so that we get
+# any custom paths set for the which command. I am loading MacVim with Boxen,
+# and that path is defined in my custom loads.
+vipath=$(which mvim)
+rc=$?
+if [ "$OS" = "mac" ]; then
+  if [[ $rc == 0 ]]; then
+    vi(){
+      if [ $1 ]; then
+        $vipath --remote-tab-silent $1
+      else
+        $vipath
+      fi
+    }
+  fi
+fi
