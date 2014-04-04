@@ -202,9 +202,8 @@ PS1="\n\
   echo -n \"\[$prompt_preposition_color\]\[$prompt_reset\]\" && \
   echo -n \"\[$prompt_git_status_color\]\$(get_git_info)\"&& \
   echo -n \"\[$prompt_git_progress_color\]\$(get_git_progress)\" && \
-  echo -n \"\[$prompt_preposition_color\]\[$prompt_reset\] \" && \
   echo -n \"\[$prompt_preposition_color\]\")\[$prompt_reset\]\
-\[$prompt_dir_color\]\w\[$prompt_reset\]\
+\[$prompt_dir_color\] \w\[$prompt_reset\]\
 \[$prompt_preposition_color\]\n\[$prompt_reset\]\
 \[$prompt_symbol_color\]$(get_prompt_symbol) \[$prompt_reset\]"
 
