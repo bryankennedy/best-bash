@@ -171,10 +171,10 @@ get_git_info () {
   # If there are any branches
   if [[ "$branch" != "" ]]; then
     # Echo the branch
-    output="$branch "
+    output="$branch"
 
     # Add on the git status
-    output="$output$(get_git_status)"
+    output="$output $(get_git_status)"
 
     # Echo our output
     echo "$output"
