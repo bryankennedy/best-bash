@@ -36,6 +36,17 @@ lowercase(){
   echo "$1" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
 }
 
+#
+# Detect SHH session
+#
+# Useful for omitting some features over a SSH connection
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  SESSION_TYPE='remote/ssh'
+else
+  SESSION_TYPE='local'
+fi
+
+
 ############################################################
 # Detect OS
 ############################################################
@@ -80,8 +91,14 @@ export DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
 # Git completion scripts provide branch names in PS1 thus:
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
 #
+
 # Sourcing a modified version of Todd Wolfson's sexy-bash-prompt
-source $BASHDIR/bash_prompt.sh
+echo $SESSION_TYPE
+if [ $SESSION_TYPE == 'remote/ssh' ]; then
+  PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \n\$ '
+else
+  source $BASHDIR/bash_prompt.sh
+fi
 
 ############################################################
 # Color
