@@ -39,6 +39,11 @@ function findin () {
   find . -exec grep -q "$1" '{}' \; -print
 }
 
+if [ "$OS" = "mac" ]; then
+  alias f='mdfind -onlyin . -name '
+  alias fs='mdfind -onlyin . '
+fi
+
 ###############################################################################
 # Changing directories
 ###############################################################################
