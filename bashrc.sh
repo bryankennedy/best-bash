@@ -53,6 +53,8 @@ fi
 OS=`lowercase \`uname\``
 if [ $OS == "darwin" ]; then
   OS="mac"
+elif [ $OS == "MINGW32_NT-6.1" ]; then
+  OS="win"
 else
   OS="linux"
 fi
@@ -90,6 +92,7 @@ export DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
 #
 # Git completion scripts provide branch names in PS1 thus:
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
+
 #
 
 # Sourcing a modified version of Todd Wolfson's sexy-bash-prompt

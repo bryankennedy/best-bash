@@ -147,20 +147,29 @@ function get_git_status() {
   branch_behind="$(parse_git_behind)"
 
   # Iterate through all the cases and if it matches, then echo
-  if [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
-    echo " ⬢"
-  elif [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 ]]; then
-    echo " ▲"
-  elif [[ "$dirty_branch" == 1 && "$branch_behind" == 1 ]]; then
-    echo " ▼"
-  elif [[ "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
-    echo " ⬡"
-  elif [[ "$branch_ahead" == 1 ]]; then
-    echo " △"
-  elif [[ "$branch_behind" == 1 ]]; then
-    echo " ▽"
-  elif [[ "$dirty_branch" == 1 ]]; then
-    echo " *"
+  if [ "$OS" != "win" ]; then
+    if [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
+      echo " ⬢"
+    elif [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 ]]; then
+      echo " ▲"
+    elif [[ "$dirty_branch" == 1 && "$branch_behind" == 1 ]]; then
+      echo " ▼"
+    elif [[ "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
+      echo " ⬡"
+    elif [[ "$branch_ahead" == 1 ]]; then
+      echo " △"
+    elif [[ "$branch_behind" == 1 ]]; then
+      echo " ▽"
+    elif [[ "$dirty_branch" == 1 ]]; then
+      echo " *"
+    fi
+  fi
+  # My windows bash prompt has less fonty goodness. So only display an asterisk
+  # to show that the branch is not in a perfect state.
+  if [ "$OS" = "win" ]; then
+    if [[ "$dirty_branch" == 1 || "$branch_ahead" == 1 || "$branch_behind" == 1 ]]; then
+      echo " *"
+    fi
   fi
 }
 
