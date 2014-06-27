@@ -39,6 +39,7 @@ function findin () {
   find . -exec grep -q "$1" '{}' \; -print
 }
 
+# Shortcuts to the Mac OS Spotlight commands
 if [ "$OS" = "mac" ]; then
   alias f='mdfind -onlyin . -name '
   alias fs='mdfind -onlyin . '
