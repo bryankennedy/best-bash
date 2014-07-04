@@ -63,7 +63,8 @@ function cl () {
 }
 # Alias for common miss-type
 alias lc="cl"
-# Compress the mkdir > cd into it series of commands
+
+# Compress mkdir, and then cd'ing into it, into a single shortcut
 function mc() {
   mkdir -p "$*" && cd "$*" && pwd
 }
