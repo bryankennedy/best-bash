@@ -48,11 +48,16 @@ fi
 ###############################################################################
 # Changing directories
 ###############################################################################
+
+# Correct simple cd spelling mistakes
+shopt -s cdspell
+
 # Shorthand navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
 # Compress the cd, ls -l series of commands.
 function cl () {
    if [ $# = 0 ]; then
