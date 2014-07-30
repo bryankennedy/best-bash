@@ -218,3 +218,16 @@ if [ "$OS" = "mac" ]; then
     }
   fi
 fi
+
+#
+# iTerm Setup
+#
+# If we're on a Mac and running iTerm, display the last part of the current
+# directory in the tab label.
+#
+# From: https://gist.github.com/phette23/5270658
+if [ "$OS" = "mac" ]; then
+  if [ $ITERM_SESSION_ID ]; then
+    export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+  fi
+fi
