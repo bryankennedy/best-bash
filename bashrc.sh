@@ -29,7 +29,6 @@
 # sessions like scp.
 [ -z "$PS1" ] && return
 
-echo "In ~/.bashrc"
 # The install script creates this symlink to the best-bash system
 BASHDIR=$HOME/.best-bash
 
