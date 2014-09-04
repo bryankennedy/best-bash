@@ -132,7 +132,8 @@ if [ $OS == 'mac' ]; then
   }
 
   # Aliases for MacVim if it exists
-  if [ -f /Applications/MacVim/mvim ] ; then
+  vipath=$(which mvim 2> /dev/null)
+  if [ ! -z $vipath  ] ; then
     alias vi="mvim"
     alias vim="mvim"
   fi
