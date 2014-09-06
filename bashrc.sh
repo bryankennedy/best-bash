@@ -164,10 +164,17 @@ source $BASHDIR/includes/git-completion.sh
 shopt -s checkwinsize
 
 ############################################################
-# Less
+# Paging
 ############################################################
-# Less is more
-export PAGER="less"
+# On a Mac, I'm mostly using iTerm which has nice scrolling
+# and a search feature, so I don't care about paging output.
+# So I set the pager to cat. On Linux and SSH sessions, I
+# probably still want the help of a pager, so I use less.
+if [ "$OS" = "mac" ]; then
+  export PAGER=cat
+else
+  export PAGER="less"
+fi
 
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
