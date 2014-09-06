@@ -139,15 +139,15 @@ HISTSIZE=10000
 # Help bash autocomplete filenames starting with dots
 shopt -s dotglob
 
-# Ignore case
+# Ignore case with autocompletion
 bind "set completion-ignore-case on"
 
-# Autocomplete hostnames
+# Autocomplete hostnames from the host file
 if [ -e ~/.ssh/known_hosts ]; then
   complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e 's/,.*//g' | uniq | grep -v "\["`;)" ssh
 fi
 
-# Include bash scripts in the includes folder
+# Autocomplete git commands and branch names
 source $BASHDIR/includes/git-completion.sh
 
 ############################################################
