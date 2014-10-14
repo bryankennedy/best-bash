@@ -23,6 +23,12 @@
 ############################################################
 # Setup
 ############################################################
+# Config
+files=$BASHDIR/conf/bash.conf
+if [ -e $files ]; then
+  source $files
+fi
+
 # SCP
 # If not running interactively, don't do anything
 # This prevents these rules from being loaded for non-interactive
@@ -96,7 +102,9 @@ export DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
 #
 
 # Sourcing a modified version of Todd Wolfson's sexy-bash-prompt
-if [ $SESSION_TYPE == 'remote/ssh' ]; then
+if [[ $PROMPT_TYPE = 'simple' ]]; then
+  PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \n\$ '
+elif [ $SESSION_TYPE == 'remote/ssh' ]; then
   PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\h\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \n\$ '
 else
   source $BASHDIR/bash_prompt.sh

@@ -1,0 +1,6 @@
+# Prompt type
+#
+# Recognized options
+#   simple:
+#   Disables the git checking in prompt for machines where this is slow.
+PROMPT_TYPE="simple"
