@@ -182,6 +182,7 @@ alias gf='git fetch'
 alias gb='git branch'
 alias gba='git branch -a -v -v'
 alias gun='git reset HEAD'             # Unstage added changes
+alias gbc='git checkout -b'
 
 # Opens the github page for the current git repository in your browser
 # from https://github.com/jasonneylon/dotfiles/
