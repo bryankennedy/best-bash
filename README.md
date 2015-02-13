@@ -16,5 +16,5 @@ Run the install.sh script.
 * ll='ls -hal' - List everything, including hidden files
 * lld='ls -thral' - List everything, by reverse date
 * lw='ls -dhal' - List for wildcard searches without all those subdir files
-* p - python
-* geni - Create a random noise picture
+* p='python'
+* geni='convert -size 100x100 xc: +noise Random random.png' - Create a random noise picture. Assumes ImageMagick.
