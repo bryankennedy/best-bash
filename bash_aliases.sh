@@ -130,11 +130,11 @@ if [ $OS == 'mac' ]; then
   }
 
   # Aliases for MacVim if it exists
-  vipath=$(which mvim 2> /dev/null)
-  if [ ! -z $vipath  ] ; then
-    alias vi="mvim"
-    alias vim="mvim"
-  fi
+#vipath=$(which mvim 2> /dev/null)
+# if [ ! -z $vipath  ] ; then
+#   alias vi="mvim"
+#   alias vim="mvim"
+# fi
 
   # Easy command to start and stop PostgreSQL server
   if [ -d /usr/local/var/postgres ] ; then
@@ -147,9 +147,13 @@ fi
 # Vim
 ###############################################################################
 # Even if you aren't on MacOS, never use vi, always use vim
-if [ $OS != "mac" ]; then
-  alias vi="vim"
-fi
+#if [ $OS != "mac" ]; then
+# alias vi="vim"
+#fi
+
+# ci is a command for the RCS VCS. I don't use it. But I often mistype vi
+# as ci, so I'm aliasing it to prevent that.
+alias ci="vi"
 
 ###############################################################################
 # Git
