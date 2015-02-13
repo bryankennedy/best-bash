@@ -11,4 +11,10 @@ Run the install.sh script.
 
     ./install.sh
 
-
+## Some useful aliases defined within
+* l='ls -lh' - List normal files
+* ll='ls -hal' - List everything, including hidden files
+* lld='ls -thral' - List everything, by reverse date
+* lw='ls -dhal' - List for wildcard searches without all those subdir files
+* p - python
+* geni - Create a random noise picture
