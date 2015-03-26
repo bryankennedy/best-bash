@@ -202,6 +202,13 @@ function gh() {
   open $giturl
 }
 
+# Open a local development site in the browser when called from within
+# a folder in the ~/Sites or ~/www directory
+function dev() {
+  result=${PWD##*/}
+  open "http://$result.dev"
+}
+
 ###############################################################################
 # Python
 ###############################################################################
