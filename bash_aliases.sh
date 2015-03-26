@@ -191,15 +191,14 @@ alias gbc='git checkout -b'
 function gh() {
   giturl=$(git config --get remote.origin.url)
   if [ "$giturl" == "" ]
-    then
-     echo "Not a git repository or no remote.origin.url set"
-     exit 1;
+  then
+    echo "Not a git repository or no remote.origin.url set"
+  else
+    giturl=${giturl/git\@github\.com\:/https://github.com/}
+    giturl=${giturl/\.git//}
+    echo $giturl
+    open $giturl
   fi
-
-  giturl=${giturl/git\@github\.com\:/https://github.com/}
-  giturl=${giturl/\.git//}
-  echo $giturl
-  open $giturl
 }
 
 # Open a local development site in the browser when called from within
