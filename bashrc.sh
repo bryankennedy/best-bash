@@ -209,6 +209,7 @@ if [ ${#files[@]} -gt 0 ]; then
     source $f
   done
 fi
+shopt -u nullglob
 
 #
 # MacVim Setup
