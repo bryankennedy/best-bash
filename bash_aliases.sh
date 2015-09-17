@@ -187,6 +187,7 @@ alias gun='git reset HEAD'             # Unstage added changes
 alias gbc='git checkout -b'
 # Delete branches that have been merged to master
 alias gclean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+alias git-permission-reset='!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply'
 
 # Opens the github page for the current git repository in your browser
 # from https://github.com/jasonneylon/dotfiles/
