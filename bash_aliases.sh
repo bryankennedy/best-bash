@@ -185,7 +185,7 @@ alias gb='git branch'
 alias gba='git branch -a -v -v'
 alias gun='git reset HEAD'             # Unstage added changes
 alias gbc='git checkout -b'
-# Delete branches that have been merge to master
+# Delete branches that have been merged to master
 alias gclean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # Opens the github page for the current git repository in your browser
