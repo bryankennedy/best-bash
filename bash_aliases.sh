@@ -76,6 +76,14 @@ function mc() {
 
 ###############################################################################
 # Rsync
+#
+# -r = --recursive - recurse into directories
+# -t = --times - preserve modification times
+# -D = --devices - not sure why I have this in here. I don't think it does
+#                  anything without rsync being run as sudo
+# --size-only = Compare on file size not date or anything else
+# --progress = Show the progress of the transfer so that we feel warm and fuzzy
+#
 ###############################################################################
 alias rsc='rsync -rtDv --size-only --progress'
 
