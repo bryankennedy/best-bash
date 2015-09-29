@@ -43,20 +43,30 @@ function choice {
 ############################################################
 # Instructions
 ############################################################
-echo "This script will replace your home directory bash files"
-echo "(.profile, .bashrc, .bash_profile, and .bash_logout)"
-echo "with symlinks to the best-bash system."
-echo "Your bash files will be moved to the best-bash/backups directory."
 
-# If NO, or error
-choice "Do you wish to continue [Y/n]: " "y"
-if [ "$CHOICE" != "y" ]; then
-  if [ "$CHOICE" = "n" ]; then
-    echo "Quitting. Your files are unafected"
+# Command line argument to allow the script to execute without user feedback.
+# Useful for server configurations via puppet installs.
+#
+# Usage: ./install.sh -y
+if [[ "$1" == -y ]]; then
+  echo Installing with prejudice
+else
+  # Prompt the user to make sure that we should install
+  echo "This script will replace your home directory bash files"
+  echo "(.profile, .bashrc, .bash_profile, and .bash_logout)"
+  echo "with symlinks to the best-bash system."
+  echo "Your bash files will be moved to the best-bash/backups directory."
+
+  # If NO, or error
+  choice "Do you wish to continue [Y/n]: " "y"
+  if [ "$CHOICE" != "y" ]; then
+    if [ "$CHOICE" = "n" ]; then
+      echo "Quitting. Your files are unafected"
+      exit
+    fi
+    echo "I didn't understand, $CHOICE. Quiting."
     exit
   fi
-  echo "I didn't understand, $CHOICE. Quiting."
-  exit
 fi
 
 ############################################################
