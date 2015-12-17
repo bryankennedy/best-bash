@@ -205,7 +205,7 @@ PS1="\n\
 \[$prompt_time_color\]\t\[$prompt_reset\] \
 \[$prompt_user_color\]\u\[$prompt_reset\]\
 \[$prompt_preposition_color\]@\[$prompt_reset\]\
-\[$prompt_device_color\]\h\[$prompt_reset\]\
+\[$prompt_device_color\]\H\[$prompt_reset\]\
 \[$prompt_preposition_color\]\[$prompt_reset\] \
 \$( is_on_git && \
   echo -n \"\[$prompt_preposition_color\]\[$prompt_reset\]\" && \
