@@ -129,7 +129,7 @@ if [ $OS == 'mac' ]; then
   alias topp='top -ocpu -R -F -s 2 -n30'
 
   # Copy curent directory to clipboard
-  alias cpwd='pwd|xargs echo -n|pbcopy'
+  alias cpwd='printf "%q\n" "$(pwd)" | pbcopy'
 
   # Dump man pages to Preview
   pman() {
