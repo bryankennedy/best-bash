@@ -230,7 +230,7 @@ function dev() {
 # Networking
 ###############################################################################
 # List all open ports where you are listening
-alias ports='netstat -an | grep LISTEN'
+alias ports='netstat -tulpn | grep LISTEN'
 # List open internet connections
 alias net-open='lsof -i'
 
