@@ -195,6 +195,8 @@ fi
 # Aliases
 source $BASHDIR/bash_aliases.sh
 
+# Auto-complete Python Fabric tasks
+source $BASHDIR/includes/fabric-completion.bash
 
 # Load custom defintions
 #
