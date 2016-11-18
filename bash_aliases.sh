@@ -148,6 +148,10 @@ if [ $OS == 'mac' ]; then
     alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
     alias pgq='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
   fi
+
+  # Correct puppet version
+  alias puppet='/opt/puppetlabs/bin/puppet'
+
 fi
 
 ###############################################################################
