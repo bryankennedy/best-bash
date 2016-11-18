@@ -137,11 +137,11 @@ if [ $OS == 'mac' ]; then
   }
 
   # Aliases for MacVim if it exists
-#vipath=$(which mvim 2> /dev/null)
-# if [ ! -z $vipath  ] ; then
-#   alias vi="mvim"
-#   alias vim="mvim"
-# fi
+  vipath=$(which mvim 2> /dev/null)
+  if [ ! -z $vipath  ] ; then
+    alias vi="mvim"
+    alias vim="mvim"
+  fi
 
   # Easy command to start and stop PostgreSQL server
   if [ -d /usr/local/var/postgres ] ; then
@@ -167,11 +167,15 @@ fi
 alias ci="vi"
 
 ###############################################################################
-# Atom
+# Atom & WebStorm
 ###############################################################################
 # Less is more
 if [ -e /usr/local/bin/atom ]; then
   alias a="atom"
+fi
+
+if [ -e /usr/local/bin/wstorm ]; then
+  alias ws="wstorm"
 fi
 
 ###############################################################################
