@@ -150,7 +150,7 @@ if [ $OS == 'mac' ]; then
   fi
 
   # Correct puppet version
-  alias puppet='/opt/puppetlabs/bin/puppet'
+  export PATH=/opt/puppetlabs/bin:$PATH
 
 fi
 
