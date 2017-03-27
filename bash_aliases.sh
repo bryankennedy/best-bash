@@ -84,7 +84,7 @@ function mc() {
 # --progress = Show the progress of the transfer so that we feel warm and fuzzy
 #
 ###############################################################################
-alias rsc='rsync -avzh --progress'
+alias rsc='rsync -avzh --progress --exclude ".DS_Store"'
 
 ###############################################################################
 # Extracting
