@@ -25,48 +25,103 @@ if [[ -n "$PROMPT_GIT_STATUS_COLOR" ]]; then prompt_git_status_color="$PROMPT_GI
 if [[ -n "$PROMPT_GIT_PROGRESS_COLOR" ]]; then prompt_git_progress_color="$PROMPT_GIT_PROGRESS_COLOR"; fi
 if [[ -n "$PROMPT_SYMBOL_COLOR" ]]; then prompt_symbol_color="$PROMPT_SYMBOL_COLOR"; fi
 
+# Get git branch
+# Cribbed and modified from:
+# https://gist.github.com/wolever/6525437
 function get_git_branch() {
-  # On branches, this will return the branch name
-  # On non-branches, (no branch)
-  ref="$(git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///')"
-  if [[ "$ref" != "" ]]; then
-    echo "$ref"
-  else
-    echo "(no branch)"
+  export GITBRANCH=""
+
+  # Read the repo from the env var if it has previously been set
+  local repo="${_GITBRANCH_LAST_REPO-}"
+
+  local gitdir=""
+
+  # If repo exists, set gitdir
+  [[ ! -z "$repo" ]] && gitdir="$repo/.git"
+
+  # Set repo and gitdir if we're in a different directory or
+  # don't have a git dir.
+  if [[ -z "$repo" || "$PWD" != "$repo"* || ! -e "$gitdir" ]]; then
+      local cur="$PWD"
+      while [[ ! -z "$cur" ]]; do
+          if [[ -e "$cur/.git" ]]; then
+              repo="$cur"
+              gitdir="$cur/.git"
+              break
+          fi
+          cur="${cur%/*}"
+      done
   fi
+
+  # Clean up the env var if there isn't a git dir and exit
+  if [[ -z "$gitdir" ]]; then
+      unset _GITBRANCH_LAST_REPO
+      return 0
+  fi
+
+  # If we get here, the above wasn't true and we do have a git dir.
+  # Find the $branch without running any git commands
+  export _GITBRANCH_LAST_REPO="${repo}"
+  local head=""
+  local branch=""
+  read head < "$gitdir/HEAD"
+  case "$head" in
+      ref:*)
+          branch="${head##*/}"
+          ;;
+      "")
+          branch=""
+          ;;
+      *)
+          branch="d:${head:0:7}"
+          ;;
+  esac
+  if [[ -z "$branch" ]]; then
+      return 0
+  fi
+
+  export GITBRANCH="$branch"
+  echo $branch
+
 }
 
 function get_git_progress() {
-  # Detect in-progress actions (e.g. merge, rebase)
-  # https://github.com/git/git/blob/v1.9-rc2/wt-status.c#L1199-L1241
-  git_dir="$(git rev-parse --git-dir)"
 
-  # git merge
-  if [[ -f "$git_dir/MERGE_HEAD" ]]; then
-    echo " [merge]"
-  elif [[ -d "$git_dir/rebase-apply" ]]; then
-    # git am
-    if [[ -f "$git_dir/rebase-apply/applying" ]]; then
-      echo " [am]"
-    # git rebase
-    else
+  if [ $PROMPT_GIT_FEATURES == "full" ] ; then
+
+    # Detect in-progress actions (e.g. merge, rebase)
+    # https://github.com/git/git/blob/v1.9-rc2/wt-status.c#L1199-L1241
+    git_dir="$(git rev-parse --git-dir)"
+
+    # git merge
+    if [[ -f "$git_dir/MERGE_HEAD" ]]; then
+      echo " [merge]"
+    elif [[ -d "$git_dir/rebase-apply" ]]; then
+      # git am
+      if [[ -f "$git_dir/rebase-apply/applying" ]]; then
+        echo " [am]"
+      # git rebase
+      else
+        echo " [rebase]"
+      fi
+    elif [[ -d "$git_dir/rebase-merge" ]]; then
+      # git rebase --interactive/--merge
       echo " [rebase]"
+    elif [[ -f "$git_dir/CHERRY_PICK_HEAD" ]]; then
+      # git cherry-pick
+      echo " [cherry-pick]"
     fi
-  elif [[ -d "$git_dir/rebase-merge" ]]; then
-    # git rebase --interactive/--merge
-    echo " [rebase]"
-  elif [[ -f "$git_dir/CHERRY_PICK_HEAD" ]]; then
-    # git cherry-pick
-    echo " [cherry-pick]"
+    if [[ -f "$git_dir/BISECT_LOG" ]]; then
+      # git bisect
+      echo " [bisect]"
+    fi
+    if [[ -f "$git_dir/REVERT_HEAD" ]]; then
+      # git revert --no-commit
+      echo " [revert]"
+    fi
+
   fi
-  if [[ -f "$git_dir/BISECT_LOG" ]]; then
-    # git bisect
-    echo " [bisect]"
-  fi
-  if [[ -f "$git_dir/REVERT_HEAD" ]]; then
-    # git revert --no-commit
-    echo " [revert]"
-  fi
+
 }
 
 is_branch1_behind_branch2 () {
@@ -164,6 +219,7 @@ function get_git_status() {
       echo " *"
     fi
   fi
+
   # My windows bash prompt has less fonty goodness. So only display an asterisk
   # to show that the branch is not in a perfect state.
   if [ "$OS" = "win" ]; then
@@ -174,20 +230,28 @@ function get_git_status() {
 }
 
 get_git_info () {
-  # Grab the branch
-  branch="$(get_git_branch)"
 
-  # If there are any branches
-  if [[ "$branch" != "" ]]; then
-    # Echo the branch
-    output="$branch"
+  if [[ $PROMPT_GIT_FEATURES == "branch" || $PROMPT_GIT_FEATURES == "full" ]] ; then
 
-    # Add on the git status
-    output="$output$(get_git_status)"
+    # Grab the branch
+    branch="$(get_git_branch)"
 
-    # Echo our output
-    echo "$output"
-  fi
+    # If there are any branches
+    if [[ "$branch" != "" ]]; then
+      # Echo the branch
+      output="$branch"
+
+      # Add on the git status
+      if [ $PROMPT_GIT_FEATURES == "full" ] ; then
+        output="$output$(get_git_status)"
+      fi
+
+      # Echo our output
+      echo "$output"
+    fi
+
+   fi
+
 }
 
 # Symbol displayed at the line of every prompt

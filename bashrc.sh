@@ -101,16 +101,17 @@ timestamp() {
 # Git completion scripts provide branch names in PS1 thus:
 # http://blog.bitfluent.com/post/27983389/git-utilities-you-cant-live-without
 
-#
-
-# Sourcing a modified version of Todd Wolfson's sexy-bash-prompt
-if [[ $PROMPT_TYPE = 'simple' ]]; then
-  PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;33m\]\H\[\033[0m\] \[\033[1;34m\]\w\[\033[0m\] \n\$ '
-elif [ $SESSION_TYPE == 'remote/ssh' ]; then
-  PS1='\[\033\n\[\[\033[1;31m\]\t\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;32m\]\H\[\033[0m\]$(__git_ps1 "\[\033[1;31m\] (%s)\[\033[0m\] "):\[\033[1;34m\]\w\[\033[0m\] \n\$ '
+# Sourcing a modified version of Todd Wolfson's sexy-bash-prompt.
+# Only enable some Git PS1/prompt features on remote connections.
+# Git features can be slow and we don't want to slow down a remote connection.
+if [ $SESSION_TYPE == "local" ]; then
+  PROMPT_GIT_FEATURES="full"
+elif [ $SESSION_TYPE == "remote/ssh" ]; then
+  PROMPT_GIT_FEATURES="branch"
 else
-  source $BASHDIR/bash_prompt.sh
+  PROMPT_GIT_FEATURES="none"
 fi
+source $BASHDIR/bash_prompt.sh
 
 ############################################################
 # Color
