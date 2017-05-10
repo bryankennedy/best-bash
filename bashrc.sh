@@ -111,6 +111,9 @@ elif [ $SESSION_TYPE == "remote/ssh" ]; then
 else
   PROMPT_GIT_FEATURES="none"
 fi
+if [ $USER == "deploy" ]; then
+  PROMPT_GIT_FEATURES="none"
+fi
 source $BASHDIR/bash_prompt.sh
 
 ############################################################
