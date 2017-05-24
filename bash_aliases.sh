@@ -190,7 +190,7 @@ alias gs='git status -s'
 
 alias gc='git commit -v'
 alias ga='git add'
-alias gap='git add -p'
+alias gap='git -c interactive.diffFilter="git diff --color-words" add -p'
 alias gaa='git add -A'
 alias gco='git checkout'
 alias gl='git log --oneline --decorate --color=always | less -R'
@@ -210,7 +210,8 @@ alias gun='git reset HEAD'             # Unstage added changes
 alias gbc='git checkout -b'
 # Delete branches that have been merged to master
 alias gclean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
-alias git-permission-reset='!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply'
+#alias git-permission-reset='!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply'
+alias not-git='git status --ignored'
 
 # Opens the github page for the current git repository in your browser
 # from https://github.com/jasonneylon/dotfiles/
