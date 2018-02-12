@@ -209,6 +209,8 @@ alias gb='git branch'
 alias gba='git branch -a -v -v'
 alias gun='git reset HEAD'             # Unstage added changes
 alias gbc='git checkout -b'
+alias gsh='git stash save -u'
+alias gshl='git stash list --date=relative'
 # Delete branches that have been merged to master
 alias gclean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 #alias git-permission-reset='!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply'
