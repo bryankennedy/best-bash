@@ -9,6 +9,8 @@
 ###############################################################################
 alias c='clear'
 alias g='grep'
+# Prevent xQuartz from trying to run, when typing this common typo
+alias x=:
 alias xx="exit"
 # Ask before doing anything dangerous
 alias cp="cp -i"
