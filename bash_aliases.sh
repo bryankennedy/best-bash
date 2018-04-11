@@ -193,6 +193,8 @@ alias gs='git status -s'
 alias gc='git commit -v'
 alias ga='git add'
 alias gap='git add -p'
+# Common typo
+alias gao='git add -p'
 alias gapi='git -c interactive.diffFilter="git diff --color-words" add -p'
 alias gaa='git add -A'
 alias gco='git checkout'
