@@ -111,9 +111,12 @@ elif [ $SESSION_TYPE == "remote/ssh" ]; then
 else
   PROMPT_GIT_FEATURES="none"
 fi
-if [ $USER == "deploy" ]; then
+
+# Basic prompt for deploy and root users
+if [ $USER == "deploy" ] || [ $UID == 0 ] ; then
   PROMPT_GIT_FEATURES="none"
 fi
+
 source $BASHDIR/bash_prompt.sh
 
 ############################################################
