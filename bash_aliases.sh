@@ -249,6 +249,7 @@ function dev() {
 alias ports='netstat -tulpn | grep LISTEN'
 # List open internet connections
 alias net-open='lsof -i'
+alias myip="dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'\"' '{ print $2}'"
 
 ###############################################################################
 # Generate random files
